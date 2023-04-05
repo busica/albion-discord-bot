@@ -108,7 +108,7 @@ class FetchPrice(commands.Cog):
 
         # Create Discord embed
         em = discord.Embed(
-            title=f"Current Prices for:\n**{itemNames[0]} ({itemIDs[0]})**"
+            title=f"Текущие цены на:\n**{itemNames[0]} ({itemIDs[0]})**"
         )
 
         # Extracting locations' timestamps and minimum sell order prices
@@ -139,11 +139,11 @@ class FetchPrice(commands.Cog):
                 if tdelta >= 94608000:
                     timeString = "NIL"
                 elif tdelta >= 3600:
-                    timeString = str(round(tdelta / 3600, 1)) + " hours ago"
+                    timeString = str(round(tdelta / 3600, 1)) + " часов назад"
                 elif tdelta >= 60:
-                    timeString = str(round(tdelta / 60)) + " mins ago"
+                    timeString = str(round(tdelta / 60)) + " минут назад"
                 else:
-                    timeString = str(round(tdelta)) + " sec ago"
+                    timeString = str(round(tdelta)) + " секунд назад"
 
                 timeStringAll.append(timeString)
 
@@ -213,19 +213,19 @@ class FetchPrice(commands.Cog):
             # Only add embeds if there are prices to show
             if embedPriceString:
                 # Add the fields to Discord embed
-                em.add_field(name="Locations", value=embedLocationString, inline=True)
-                em.add_field(name="Min Sell Price", value=embedPriceString, inline=True)
-                em.add_field(name="Last Updated", value=embedTimeString, inline=True)
+                em.add_field(name="Локации", value=embedLocationString, inline=True)
+                em.add_field(name="Мин. цена продажи", value=embedPriceString, inline=True)
+                em.add_field(name="Посл. обновление", value=embedTimeString, inline=True)
 
             if embedPriceStringBuy:
                 # Add fields for buy orders
                 em.add_field(
-                    name="Locations", value=embedLocationStringBuy, inline=True
+                    name="Локации", value=embedLocationStringBuy, inline=True
                 )
                 em.add_field(
-                    name="Max Buy Price", value=embedPriceStringBuy, inline=True
+                    name="Макс. цена покупки", value=embedPriceStringBuy, inline=True
                 )
-                em.add_field(name="Last Updated", value=embedTimeStringBuy, inline=True)
+                em.add_field(name="Посл. обновление", value=embedTimeStringBuy, inline=True)
 
         # If data is empty
         except:
@@ -251,7 +251,7 @@ class FetchPrice(commands.Cog):
             em.set_thumbnail(url=iconFullURL)
 
             # \u274c is a red X
-            em.set_footer(text="React with \u274c to delete this post.")
+            em.set_footer(text="Ставь \u274c, чтобы удалить этот пост.")
 
             try:
                 # Skip plotting if command is quick

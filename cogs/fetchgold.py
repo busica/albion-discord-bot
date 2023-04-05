@@ -128,7 +128,7 @@ class FetchGold(commands.Cog):
             plt.close("all")
 
             # \u274c is a red X
-            em.set_footer(text="React with \u274c to delete this post.")
+            em.set_footer(text="Отреагируй \u274c чтобы удалить этот пост.")
             plotFile = discord.File("./goldplot.png", filename="goldplot.png")
 
             msg = await ctx.send(embed=em, file=plotFile)
